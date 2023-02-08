@@ -1,0 +1,25 @@
+#common command-line commands
+xrandr --output eDP1 --brightness 0.5 #set brightness screen dimmer below minimum
+pacman -Syu #upgrade arch linux system
+pacman -Qs #search installed packages
+pacman -Ss #search packages
+pacman -Rs #remove a package and it's dependencies
+git clone https://aur.archlinux.org/package_name.git #clone aur package into current directory
+cd package_name #enter the package dir before making the package
+makepkg -s -i -r #make and install aur package sync dependencies, install package if buit successfully, remove build time dependencies
+git pull #gets updated files an aur package. Then use makepkg to update
+lshw  #list hardware
+ls -l  #list contents of a directory in line format
+cat  #print contents of file
+less  #print contents of file in page format
+cp  #basic command to copy a file
+rm  #basic command to remove a file
+mv  #basic command to move or rename a file
+mkdir  #basic command to make a directory
+mvdir  #basic command to move or rename a directory
+xfconf-query -c xfce4-keyboard-shortcuts -l -v | cut -d'/' -f4 | awk '{printf "%30s", $2; print "\t" $1}' | sort | uniq #print all xcfe keyboard shortcuts hotkeys
+./scripts/ggetmirrorlist #script to get top 20 recently synced mirrors by download speed
+./scripts/dim05 #script to set brightness to 0.5 (screen dimmer)
+xfconf-query -c <channel> -p <property> -s <value to set> #change a xcfe setting
+pacman -Qlq package | grep -v '/$' | xargs -r du -h | sort -h #output package contents
+

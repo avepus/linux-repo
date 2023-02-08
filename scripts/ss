@@ -1,0 +1,18 @@
+#!/bin/sh
+echo searches all xfce settings for the input string
+echo returns a report of the properties that match and their associated channels
+
+echo "Search String:"
+read searchString
+
+settingstr=$(xfconf-query -l)
+
+settingArray=($settingstr)
+
+echo -e "Channel\tSetting"
+
+for i in "${settingArray[@]}"
+do
+xfconf-query -c $i -l | \
+awk -v ss=$searchString -v channel=$i -v OFS='\t' '$0~ss {print channel,$0}'
+done

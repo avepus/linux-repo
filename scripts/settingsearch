@@ -1,0 +1,8 @@
+#!/bin/sh
+
+settingarray=$(xfconf-query -l)
+
+for i in "${settingarray[@]}"
+do
+echo i="${settingarray[i]}"
+done

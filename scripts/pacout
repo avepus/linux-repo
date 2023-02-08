@@ -1,0 +1,8 @@
+#!/bin/sh
+#output a pacman packages content
+
+echo "Enter package name to output contents of:"
+
+read package
+
+pacman -Qlq $package | grep -v '/$' | xargs -r du -h | sort -h #output package contents

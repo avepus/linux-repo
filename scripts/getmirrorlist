@@ -1,0 +1,3 @@
+#!/bin/bash
+#uses reflector to update mirrorlist for pacman with 20 fastest mirrors
+sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist

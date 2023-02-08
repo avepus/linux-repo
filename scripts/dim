@@ -1,0 +1,12 @@
+#!/bin/sh
+#set brightness to 0.5 which is below minimum
+brightness=`xrandr --verbose | grep -m 1 -i brightness | cut -f2 -d ' '`
+echo "Enter Brightness Value (Current=$brightness) "
+
+read var
+
+if [ -z "$var" ];
+then
+	var=0.5
+fi
+sudo xrandr --output eDP1 --brightness $var

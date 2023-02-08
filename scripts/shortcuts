@@ -1,0 +1,8 @@
+#!/bin/bash
+echo searches keyboardshortcuts for a specified input string
+
+echo Search string: 
+read searchString
+
+xfconf-query -c xfce4-keyboard-shortcuts -l -v | cut -d'/' -f4 | awk -v ss="$searchString" 'BEGIN{IGNORECASE=1} $0~ss {printf "%30s", $2; print "\t" $1}' | sort | uniq
+
