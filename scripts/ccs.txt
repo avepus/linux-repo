@@ -18,8 +18,8 @@ mv  #basic command to move or rename a file
 mkdir  #basic command to make a directory
 mvdir  #basic command to move or rename a directory
 xfconf-query -c xfce4-keyboard-shortcuts -l -v | cut -d'/' -f4 | awk '{printf "%30s", $2; print "\t" $1}' | sort | uniq #print all xcfe keyboard shortcuts hotkeys
+xfconf-query -c <channel> -p <property> -s <value to set> #change a xcfe setting
 ./scripts/ggetmirrorlist #script to get top 20 recently synced mirrors by download speed
 ./scripts/dim05 #script to set brightness to 0.5 (screen dimmer)
-xfconf-query -c <channel> -p <property> -s <value to set> #change a xcfe setting
 pacman -Qlq package | grep -v '/$' | xargs -r du -h | sort -h #output package contents
-
+eos-welcome --once #endeavouros command to run the welcome app
