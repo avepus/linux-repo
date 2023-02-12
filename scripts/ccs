@@ -1,8 +1,11 @@
 #!/bin/sh
 #search ccs.txt (common commands) file for a string
+COMMAND_FILE_PATH=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd ) #gets current script DIR
+COMMAND_FILE_PATH+="/common_commands.txt"
+
 
 echo "Enter search string:"
 
 read ss
 
-grep $ss /home/main/scripts/ccs.txt
+grep $ss $COMMAND_FILE_PATH
